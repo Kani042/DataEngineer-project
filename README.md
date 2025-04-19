@@ -21,6 +21,24 @@ The solution ingests raw CSV data from GitHub, transforms it using Databricks, m
 - Azure Databricks notebooks are used for transformation (e.g., cleaning, joining, formatting).
 - Transformed data is written back to a curated zone in Data Lake Gen2.
 
+The raw data ingested from GitHub was transformed using **PySpark** in **Azure Databricks** with the following steps:
+
+1. **Concatenate Customer Name**
+   - Combined `prefix`, `firstname`, and `lastname` into a single column `customer_name`.
+
+2. **Split Store Code**
+   - Extracted `store_name` and `store_id` by splitting the `store_code` column.
+
+3. **Calculate Revenue**
+   - Created a new column `revenue` by multiplying `quantity` and `price`:  
+     `revenue = quantity * price`
+
+4. **Convert Date to Timestamp**
+   - Changed the data type of `order_date` from `date` to `timestamp` for accurate temporal analysis.
+
+5. **Standardize Order Number**
+   - Replaced the first character of `order_number` with `"T"` to standardize or mask the order format.
+
 ### 3. Data Modeling
 - Views are created in Azure Synapse Analytics from the curated data in Data Lake.
 - External tables are defined on top of the views using Synapse SQL Serverless.
