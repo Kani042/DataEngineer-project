@@ -1,0 +1,17 @@
+{
+	"name": "create_territories_view",
+	"properties": {
+		"content": {
+			"query": "--------Create View to load the Territories data from Azure Gen2 Storage------------\n\nCREATE VIEW azureproj.territories_view\nAS\nselect \n    *  \nfrom \n    OPENROWSET\n    (\n        BULK 'https://salesdataprojectstorage.dfs.core.windows.net/transformdatasales/territories/',\n        FORMAT='PARQUET'\n    ) as query1",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "azureprojserverlessdb",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

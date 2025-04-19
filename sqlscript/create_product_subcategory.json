@@ -1,0 +1,17 @@
+{
+	"name": "create_product_subcategory",
+	"properties": {
+		"content": {
+			"query": "\n\nCREATE VIEW azureproj.product_subcategory_view\nAS\nselect \n    *  \nfrom \n    OPENROWSET\n    (\n        BULK 'https://salesdataprojectstorage.dfs.core.windows.net/transformdatasales/product_subcategory/',\n        FORMAT='PARQUET'\n    ) as query1",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "azureprojserverlessdb",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

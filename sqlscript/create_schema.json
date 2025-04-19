@@ -1,0 +1,17 @@
+{
+	"name": "create_schema",
+	"properties": {
+		"content": {
+			"query": "Create schema azureproj;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "azureprojserverlessdb",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

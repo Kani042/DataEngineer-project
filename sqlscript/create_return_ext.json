@@ -1,0 +1,17 @@
+{
+	"name": "create_return_ext",
+	"properties": {
+		"content": {
+			"query": "--------Create external table for the return data to load from  Azure Gen2 Storage------------\n\nCREATE EXTERNAL TABLE ext_return\nWITH\n(\n    LOCATION = 'extreturn' ,\n    DATA_SOURCE = azureds,\n    FILE_FORMAT = azurefileformat\n)\nAS \n  SELECT * FROM azureproj.return_view\n\n ",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "azureprojserverlessdb",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

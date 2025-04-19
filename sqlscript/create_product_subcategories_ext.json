@@ -1,0 +1,17 @@
+{
+	"name": "create_product_subcategories_ext",
+	"properties": {
+		"content": {
+			"query": "--------Create external table for the product subcategories data to load from  Azure Gen2 Storage------------\n\nCREATE EXTERNAL TABLE ext_product_subcategories \nWITH\n(\n    LOCATION = 'extproduct_subcategories' ,\n    DATA_SOURCE = azureds,\n    FILE_FORMAT = azurefileformat\n)\nAS \n  SELECT * FROM azureproj.product_subcategory_view\n\n ",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "azureprojserverlessdb",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

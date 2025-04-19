@@ -1,0 +1,17 @@
+{
+	"name": "create_ext_sales",
+	"properties": {
+		"content": {
+			"query": "--------Create external table to load the Sales data from Azure Gen2 Storage------------\n\n\nCREATE EXTERNAL TABLE ext_sales\nWITH\n(\n    LOCATION = 'extsales' ,\n    DATA_SOURCE = azureds,\n    FILE_FORMAT = azurefileformat\n)\nAS \n  SELECT * FROM azureproj.create_sales_view\n\n ",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "azureprojserverlessdb",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"name": "calendar_script",
+	"properties": {
+		"content": {
+			"query": "--------View the Calendar data from Azure Gen2 Storage------------\n\nselect *  \nfrom \nOPENROWSET(\n    BULK 'https://salesdataprojectstorage.dfs.core.windows.net/transformdatasales/calendar/',\n    FORMAT='PARQUET'\n) as query1",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "azureprojserverlessdb",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
