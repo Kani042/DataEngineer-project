@@ -1,0 +1,9 @@
+{
+	"name": "adf-salesprojectazure",
+	"location": "canadacentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "08499519-d081-4fcd-896f-52e200e0c8ea",
+		"tenantId": "729afaa2-2f3c-4167-bff8-2b2452c198ee"
+	}
+}

@@ -1,0 +1,45 @@
+{
+	"name": "dynamicdatalakestorage",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Adlslinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"pdatalakecontainer": {
+				"type": "string"
+			},
+			"pdatalakefolder": {
+				"type": "string"
+			},
+			"pdatalakefile": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().pdatalakefile",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().pdatalakefolder",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@dataset().pdatalakecontainer",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

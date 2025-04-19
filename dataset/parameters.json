@@ -1,0 +1,36 @@
+{
+	"name": "parameters",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Adlslinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "git.json",
+				"fileSystem": "parameters"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"Prelativeurl": {
+					"type": "string"
+				},
+				"pdatalakecontainer": {
+					"type": "string"
+				},
+				"pdatalakefolder": {
+					"type": "string"
+				},
+				"pdatalakefile": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
